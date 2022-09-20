@@ -31,7 +31,7 @@ const Home: NextPage = () => {
           <h1 className="text-5xl font-bold sans ">
               Build Your <span className="text-transparent bg-clip-text bg-gradient-to-br from-cyan-500 to-green-500">Dream</span>
           </h1>
-          <h1 className="text-lg font-semibold">In a world of impermanence, Odyssey lets you create and collect moments that last forever.</h1>
+          <h1 className="text-xl text-slate-500 mt-2">Get started with your first decentralized application.</h1>
           <button onClick={()=>handleClickCounter()} className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-5">
                             Counter: {counter}
           </button>

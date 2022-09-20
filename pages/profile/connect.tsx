@@ -42,14 +42,14 @@ const Connect: NextPage = () => {
   }
 
   return (
-    <div className="h-screen w-full">
+    <div className="h-screen">
       <Head>
         <title>Connect</title>
         <meta name="description" content="Spread the crypto love!" />
         <link rel="icon" href="/cbgLogo.ico" />
       </Head>
       
-    <main className="mx-auto">
+    <main className="mx-auto px-4">
      <Navbar></Navbar>
         <div className="h-[6rem]">
           {/* padding div for space between top and main elements */}
