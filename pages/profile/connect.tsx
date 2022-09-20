@@ -44,9 +44,9 @@ const Connect: NextPage = () => {
   return (
     <div className="h-screen w-full">
       <Head>
-        <title>Art</title>
+        <title>Connect</title>
         <meta name="description" content="Spread the crypto love!" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/cbgLogo.ico" />
       </Head>
       
     <main className="mx-auto">

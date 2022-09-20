@@ -12,8 +12,6 @@ import { defaultWallet } from "../models/defaultWallet";
 const Navbar:NextPage = () => {
     const [isMenuMobile, setMenuMobile] = useState(false);
     const authContext = useAuthContext();
-    console.log("Auth context:");
-    console.log(authContext);
 
     // change style based on boolean
     const menuWrapperClassName = isMenuMobile

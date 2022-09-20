@@ -14,9 +14,9 @@ const Home: NextPage = () => {
   return (
     <div className="h-screen">
       <Head>
-        <title>Art</title>
+        <title>Odyssey</title>
         <meta name="description" content="Spread the crypto love!" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/cbgLogo.ico" />
       </Head>
       
     <main className="container px-4 mx-auto ">
