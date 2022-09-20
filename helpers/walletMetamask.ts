@@ -14,15 +14,13 @@ import { Web3Provider } from "@ethersproject/providers";
 // can programmatically
 // change the network that the browser
 // extension is connected to.
-// This feature is implemented below,
-// to automatically set - up Cronos
 
 export const switchNetwork = async (provider:Web3Provider) => {
   try {
       // switch chain
     await provider.send(
       "wallet_switchEthereumChain",
-      [{ chainId: config.configVars.rpcNetwork.chainIdHex }],
+      [{ chainId: config.ethConfig.rpcNetwork.chainIdHex }],
     );
   } 
   catch (e) {
@@ -32,11 +30,11 @@ export const switchNetwork = async (provider:Web3Provider) => {
       "wallet_addEthereumChain",
       [
         {
-          chainId: config.configVars.rpcNetwork.chainIdHex,
-          chainName: config.configVars.rpcNetwork.chainName,
-          rpcUrls: [config.configVars.rpcNetwork.rpcUrl],
-          nativeCurrency: config.configVars.rpcNetwork.nativeCurrency,
-          blockExplorerUrls: [config.configVars.rpcNetwork.blockExplorerUrl],
+          chainId: config.ethConfig.rpcNetwork.chainIdHex,
+          chainName: config.ethConfig.rpcNetwork.chainName,
+          rpcUrls: [config.ethConfig.rpcNetwork.rpcUrl],
+          nativeCurrency: config.ethConfig.rpcNetwork.nativeCurrency,
+          blockExplorerUrls: [config.ethConfig.rpcNetwork.blockExplorerUrl],
         },
       ],
     );
@@ -57,7 +55,7 @@ export const connect = async (): Promise<IWallet> => {
     console.log("Metamask returned chain id:");
     console.log(network.chainId);
     // check if chain id matches the chain id we would like to interact with
-    if (!(network.chainId.toString() === config.configVars.rpcNetwork.chainIdHex)) {
+    if (!(network.chainId.toString() === config.ethConfig.rpcNetwork.chainIdHex)) {
         // switch network to desired
       await switchNetwork(provider);
       provider = new ethers.providers.Web3Provider((window as any).ethereum);
@@ -80,7 +78,7 @@ export const connect = async (): Promise<IWallet> => {
         address: accounts[0],
         browserWeb3Provider: provider,
         serverWeb3Provider: new ethers.providers.JsonRpcProvider(
-          config.configVars.rpcNetwork.rpcUrl
+          config.ethConfig.rpcNetwork.rpcUrl
         ),
         connected: true,
         chainId: utils.hexToInt(
@@ -88,7 +86,7 @@ export const connect = async (): Promise<IWallet> => {
           currNetwork.chainId.toString()
         ),
     };
-    console.log("newy wallet:");
+    console.log("new wallet:");
     console.log(newWallet);
     return newWallet;
   } 
