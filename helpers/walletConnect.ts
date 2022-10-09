@@ -26,7 +26,7 @@ export const connect = async (): Promise<IWallet> => {
     provider.on("accountsChanged", utils.reloadApp);
     provider.on("chainChanged", utils.reloadApp);
     provider.on("disconnect", utils.reloadApp);
-
+    //adapted from https://github.com/kentimsit/cronos-dapp-basic-3/blob/8bbbab74f0fcabb773123e1491a0e40c7bab1547/src/helpers/wallet-connect.ts
     return {
       ...defaultWallet,
       walletProviderName: "walletconnect",
