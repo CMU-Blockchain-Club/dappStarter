@@ -11,14 +11,20 @@ export const connect = async (): Promise<IWallet> => {
   try {
     // Reset cache
     localStorage.clear();
-    const provider = new WalletConnectProvider({
+    const provider:WalletConnectProvider = new WalletConnectProvider({
         rpc: {
           1: "https://cloudflare-eth.com/", // https://ethereumnodes.com/
           137: "https://polygon-rpc.com/", // https://docs.polygon.technology/docs/develop/network-details/network/
           // ...
-    
         },
+        clientMeta:{
+          description:"A sample Dapp built by the CMU Blockchain group.",
+          name: "Odyssey",
+          url: "https://cmublockchain.xyz/",
+          icons: ["https://cmublockchain.xyz/cbgLogo.png"]
+        }
       });
+    
     await provider.enable();
     console.log(provider);
 
